@@ -10,9 +10,9 @@ namespace API_sing_inter
     {
         public void WordSearch(ProcessItem item) 
         {
-            Thread.Sleep(10000);
+            
             //Регулярка для поиска всех тегов, знаков препинания и других небуквенных символов
-            string pattern = "<.+?>|[\\p{P}]|[^A-Za-zА-Яа-я]";
+            string pattern = "<.+?>|[^A-Za-zА-Яа-я]";
             string htmlCode = "";
             try
             {
@@ -20,6 +20,8 @@ namespace API_sing_inter
                 {
                     htmlCode = client.DownloadString(item.url);
                 }
+                Thread.Sleep(30000);// имитируем долгий процесс
+
                 //Разделитель - все что найдет регулярка
                 var words = Regex.Split(htmlCode, pattern);
                 //Отсеиваем пустые строки

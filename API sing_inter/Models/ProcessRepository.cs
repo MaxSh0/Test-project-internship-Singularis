@@ -9,7 +9,7 @@ namespace API_sing_inter.Models
         private static ConcurrentDictionary<string, ProcessItem> _todos = new ConcurrentDictionary<string, ProcessItem>();
         public ProcessRepository() 
         {
-            Add(new ProcessItem { url = "TestUrl"}) ;
+           
         }
 
         public IEnumerable<ProcessItem> GetAll() 
